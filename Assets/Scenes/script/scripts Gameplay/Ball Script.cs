@@ -4,23 +4,35 @@ public class BallScript : MonoBehaviour
 {
     public float DeltaTime;
     [SerializeField] private GameObject PauseMenu;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private Rigidbody2D ball;
+    private Rigidbody2D Ball;
+    public float Speed = 3f;
+    public float MaxSpeed = 20f;
+    public MovimentPlayers LastTouch;
 
     private void Awake()
     {
-        ball = GetComponent<Rigidbody2D>();
+        Ball = GetComponent<Rigidbody2D>();
     }
 
-    void Start()
+    private void Start()
     {
-        ball.linearVelocity = new Vector2(1f, 1f).normalized * speed;
+        Ball.linearVelocity = new Vector2(1f, 1f).normalized * Speed;
 
     }
-    private void FixedUpdate()
+    public void BustSpeed(float amount)
     {
-
+        Speed += amount;
+        Speed = Mathf.Min(Speed, MaxSpeed);
+        Ball.linearVelocity = Ball.linearVelocity.normalized * MaxSpeed;
     }
+   
+
+
+    public void LastPlayer(MovimentPlayers Player) {
+        LastTouch = Player;
+        }
+
+
 
     void Update()
     {
