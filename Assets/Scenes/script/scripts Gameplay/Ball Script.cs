@@ -19,11 +19,17 @@ public class BallScript : MonoBehaviour
         Ball.linearVelocity = new Vector2(1f, 1f).normalized * Speed;
 
     }
+
+    public void ResetSpeed()
+    {
+        Speed = 3f;
+        Ball.linearVelocity = Ball.linearVelocity.normalized * Speed;
+    }
     public void BustSpeed(float amount)
     {
         Speed += amount;
         Speed = Mathf.Min(Speed, MaxSpeed);
-        Ball.linearVelocity = Ball.linearVelocity.normalized * MaxSpeed;
+        Ball.linearVelocity = Ball.linearVelocity.normalized * Speed;
     }
    
 

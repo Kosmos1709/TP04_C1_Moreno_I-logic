@@ -53,21 +53,24 @@ public class MovimentPlayers : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector2 movement = Vector2.zero;
         if (Input.GetKey(UpKey))
         {
-            RigiPlayer.MovePosition(RigiPlayer.position + Vector2.up * speed * Time.fixedDeltaTime);
+            movement += Vector2.up;
         }
         if (Input.GetKey(LeftKey))
         {
-            RigiPlayer.MovePosition(RigiPlayer.position + Vector2.left * speed * Time.fixedDeltaTime);
+            movement += Vector2.left;
         }
         if (Input.GetKey(RightKey))
         {
-            RigiPlayer.MovePosition(RigiPlayer.position + Vector2.right * speed * Time.fixedDeltaTime);
+            movement += Vector2.right       ;
         }
         if (Input.GetKey(DownKey))
         {
-            RigiPlayer.MovePosition(RigiPlayer.position + Vector2.down * speed * Time.fixedDeltaTime);
+            movement += Vector2.down;
         }
+        movement = movement.normalized;
+        RigiPlayer.position += movement * speed * Time.fixedDeltaTime;
     }
 }
