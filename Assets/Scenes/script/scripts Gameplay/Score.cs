@@ -9,7 +9,8 @@ public class Score : MonoBehaviour
     [SerializeField] private GameObject LeftWall;
     public int BestOf;
     private int Goal;
-   public BallScript ballScript;
+    public BallScript ballScript;
+   
     void Start()
     {
         BestOf = 5;
@@ -37,7 +38,7 @@ public class Score : MonoBehaviour
             ballScript.ResetSpeed();
             transform.position = Vector2.zero;
 
-            
+
 
         }
     }

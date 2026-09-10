@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 274942225}
   - component: {fileID: 274942224}
   m_Layer: 5
-  m_Name: Canvas Gameplay UI
+  m_Name: Canvas Gameplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1518,9 +1518,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cdd88a16e8a64439a847263c01e732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timerround
-  TimerText: {fileID: 1561306882}
-  PauseMenu: {fileID: 1371280362}
   roundTime: 20
+  PauseMenu: {fileID: 1371280362}
+  TimerText: {fileID: 1561306882}
 --- !u!1 &296442477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,7 +5415,7 @@ GameObject:
   - component: {fileID: 1561306883}
   - component: {fileID: 1561306882}
   m_Layer: 5
-  m_Name: TimeText
+  m_Name: time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5441,7 +5441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 20:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6755,7 +6755,6 @@ MonoBehaviour:
   LeftWall: {fileID: 1386257598}
   BestOf: 0
   ballScript: {fileID: 0}
-  TimerRound: {fileID: 0}
 --- !u!1 &2094678433
 GameObject:
   m_ObjectHideFlags: 0
