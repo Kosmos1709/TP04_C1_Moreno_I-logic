@@ -1,16 +1,24 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    [Header("Score Players")]
     [SerializeField] private int ScoreP1;
     [SerializeField] private int ScoreP2;
+    [Header("Game Objects")]
     [SerializeField] private GameObject ball;
     [SerializeField] private GameObject RightWall;
     [SerializeField] private GameObject LeftWall;
+    [SerializeField] private GameObject triggerleft;
+    [SerializeField] private GameObject triggerright;
+
     public int BestOf;
     private int Goal;
     public BallScript ballScript;
-   
+    public Timerround timerRound;
+
+
     void Start()
     {
         BestOf = 5;
@@ -27,7 +35,7 @@ public class Score : MonoBehaviour
             Debug.Log("Player 1 Score: " + ScoreP1);
             ballScript.ResetSpeed();
             transform.position = Vector2.zero;
-
+            timerRound.ResetTimer();
 
            
         }
@@ -37,8 +45,31 @@ public class Score : MonoBehaviour
             Debug.Log("Player 2 Score: " + ScoreP2);
             ballScript.ResetSpeed();
             transform.position = Vector2.zero;
+            timerRound.ResetTimer();
 
 
+
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collider2D)
+    {
+
+        
+        if (collider2D.gameObject == triggerleft && timerRound.roundTime == 0)
+        {
+            ScoreP1++;
+            timerRound.ResetTimer();
+            ballScript.ResetSpeed();
+            transform.position = Vector2.zero;
+
+        }
+        if (collider2D.gameObject == triggerright && timerRound.roundTime == 0)
+        {
+            ScoreP2++;
+            timerRound.ResetTimer();
+            ballScript.ResetSpeed();
+            transform.position = Vector2.zero;
 
         }
     }

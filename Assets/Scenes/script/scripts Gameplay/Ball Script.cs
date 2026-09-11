@@ -8,7 +8,8 @@ public class BallScript : MonoBehaviour
     public float Speed = 3f;
     public float MaxSpeed = 20f;
     public MovimentPlayers LastTouch;
-  
+    private Timerround timerRound;
+
 
     private void Awake()
     {
