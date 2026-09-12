@@ -28,7 +28,6 @@ public class Exitbotton : MonoBehaviour
     {
         Debug.Log("Boton de Salir presionado");
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
     void Start()
     {

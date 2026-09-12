@@ -68,7 +68,6 @@ public class PauseScripts : MonoBehaviour
     private void FunctionExit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
     /// <summary>
     /// ///////////////

@@ -4,19 +4,21 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     [Header("Score Players")]
-    [SerializeField] private int ScoreP1;
-    [SerializeField] private int ScoreP2;
+    [SerializeField] public int ScoreP1;
+    [SerializeField] public int ScoreP2;
     [Header("Game Objects")]
     [SerializeField] private GameObject ball;
     [SerializeField] private GameObject RightWall;
     [SerializeField] private GameObject LeftWall;
     [SerializeField] private GameObject triggerleft;
     [SerializeField] private GameObject triggerright;
-
+    [SerializeField] public EndGame endgame;
+    public bool EndOFGame =false;
     public int BestOf;
     private int Goal;
     public BallScript ballScript;
     public Timerround timerRound;
+    
 
 
     void Start()
@@ -25,6 +27,7 @@ public class Score : MonoBehaviour
         ScoreP1 = 0;
         ScoreP2 = 0;
         ballScript = GetComponent<BallScript>();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -93,11 +96,17 @@ public class Score : MonoBehaviour
         {
             Debug.Log("Player 1 Wins!");
             Time.timeScale = 0f;
+            EndOFGame = true;
+            endgame.Player1Win();
         }
         if (ScoreP2 >= Goal)
         {
             Debug.Log("Player 2 Wins!");
             Time.timeScale = 0f;
+            EndOFGame = true;
+            endgame.Player2Win();
+
+
         }
 
     }

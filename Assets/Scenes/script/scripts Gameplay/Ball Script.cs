@@ -4,6 +4,8 @@ public class BallScript : MonoBehaviour
 {
     public float DeltaTime;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject VictoryMenu;
+
     private Rigidbody2D Ball;
     public float Speed = 3f;
     public float MaxSpeed = 20f;
@@ -45,9 +47,9 @@ public class BallScript : MonoBehaviour
     void Update()
     {
         DeltaTime=Time.deltaTime;
-        if (PauseMenu.activeSelf)
+        if (PauseMenu.activeSelf || VictoryMenu.activeSelf)
             DeltaTime = 0f;
-        else if (!PauseMenu.activeSelf)
+        else if (!PauseMenu.activeSelf || !VictoryMenu.activeSelf)
             DeltaTime = 1f;
     }
 }

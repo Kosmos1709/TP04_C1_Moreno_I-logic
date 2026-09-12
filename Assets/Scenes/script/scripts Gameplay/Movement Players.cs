@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class MovimentPlayers : MonoBehaviour
 {
-    [SerializeField] public float ScalePlayer1 = 1f;
-    [SerializeField] public float ScalePlayer2 = 1f;
+    [SerializeField] public float ScalePlayer1 = 0.5f;
+    [SerializeField] public float ScalePlayer2 = 0.5f;
     public float timeScale;
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject VictoryMenu;
     [SerializeField] private Rigidbody2D RigiPlayer;
     public float speed= 10f;
     [SerializeField] private KeyCode UpKey;
@@ -19,8 +20,7 @@ public class MovimentPlayers : MonoBehaviour
 
     void Awake()
     {
-        RigiPlayer = GetComponent<Rigidbody2D>();
-        transform.localScale = new Vector3(0.6f, ScalePlayer1, 0.6f);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,11 +43,11 @@ public class MovimentPlayers : MonoBehaviour
 
         Time.timeScale = timeScale;
 
-        if (PauseMenu.activeSelf)
+        if (PauseMenu.activeSelf || VictoryMenu.activeSelf)
         {
             timeScale = 0f;
         }
-        else if(!PauseMenu.activeSelf) 
+        else if(!PauseMenu.activeSelf || !VictoryMenu.activeSelf) 
             timeScale = 1f;
     }
 

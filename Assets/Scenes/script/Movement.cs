@@ -1,9 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Composites;
-using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Movement : MonoBehaviour
 {
