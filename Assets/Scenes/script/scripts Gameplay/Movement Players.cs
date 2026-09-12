@@ -20,7 +20,7 @@ public class MovimentPlayers : MonoBehaviour
     void Awake()
     {
         RigiPlayer = GetComponent<Rigidbody2D>();
-        transform.localScale = new Vector3(1f, ScalePlayer1, 1f);
+        transform.localScale = new Vector3(0.6f, ScalePlayer1, 0.6f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

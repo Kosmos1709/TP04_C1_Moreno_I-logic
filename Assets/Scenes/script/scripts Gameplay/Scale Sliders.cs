@@ -17,12 +17,12 @@ public class ScaleSliders : MonoBehaviour
     private void SlideScale1(float value)
     {
         Player1.ScalePlayer1 = value;
-        Player1.transform.localScale = new Vector3(1f, value, 1f);
+        Player1.transform.localScale = new Vector3(0.6f, value, 0.6f);
     }
     private void SlideScale2(float value)
     {
         Player2.ScalePlayer2 = value;
-        Player2.transform.localScale = new Vector3(1f, value, 1f);
+        Player2.transform.localScale = new Vector3(0.6f, value, 0.6f);
     }
     void Update()
     {
