@@ -27,6 +27,8 @@ public class Exitbotton : MonoBehaviour
     private void FunctionExit()
     {
         Debug.Log("Boton de Salir presionado");
+        // Warning: Application.Quit() sin el bloque #if UNITY_EDITOR. En el build funciona, pero en el editor el botón no hace nada y parece roto. Es la misma observación del TP03.
+        // Agregá abajo: #if UNITY_EDITOR UnityEditor.EditorApplication.isPlaying = false; #endif
         Application.Quit();
     }
     void Start()

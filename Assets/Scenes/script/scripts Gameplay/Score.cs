@@ -4,6 +4,8 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     [Header("Score Players")]
+    // Warning: ScoreP1, ScoreP2, EndOFGame, BestOf, endgame, ballScript y timerRound son public. Con [SerializeField] ya los ves en el inspector; el public solo abre la puerta a que cualquiera los pise.
+    // Dejalos private y exponé lo que otro script necesita leer (el marcador) como property de solo lectura.
     [SerializeField] public int ScoreP1;
     [SerializeField] public int ScoreP2;
     [Header("Game Objects")]
@@ -59,6 +61,8 @@ public class Score : MonoBehaviour
     {
 
         
+        // Bug: el punto por tiempo va al jugador equivocado. 'trigger left' está en x = -1.44, o sea la mitad izquierda, que es el lado del jugador 1 (se ve en el OnCollisionEnter2D de arriba: la pelota contra RightWall le suma al jugador 1).
+        // La consigna dice que al cumplirse el tiempo se le hace un gol AL jugador que tiene la pelota de su lado, así que si la pelota quedó a la izquierda el punto es del jugador 2. Están invertidas las dos ramas.
         if (collider2D.gameObject == triggerleft && timerRound.roundTime == 0)
         {
             ScoreP1++;
@@ -94,6 +98,8 @@ public class Score : MonoBehaviour
 
         if (ScoreP1 >= Goal)
         {
+            // Warning: este Debug.Log está adentro del Update y la condición sigue siendo verdadera después de ganar, así que escribe una línea por frame hasta que se cierre el juego. Lo mismo con el de la línea 104.
+            // Además Time.timeScale = 0f también se reasigna en cada frame. Mové el bloque de victoria a un método que se llame una sola vez, desde donde se suma el punto.
             Debug.Log("Player 1 Wins!");
             Time.timeScale = 0f;
             EndOFGame = true;

@@ -11,6 +11,8 @@ public class RandomColorPlayer : MonoBehaviour
 
     private void Awake()
     {
+        // Bug: AddComponent<SpriteRenderer>() le agrega un SEGUNDO SpriteRenderer al objeto del jugador en cada arranque. El campo player ya es el SpriteRenderer que vas a usar, no hace falta crear otro, y Unity no puede tener dos renderers en el mismo GameObject.
+        // Borrá el Awake entero.
         player.AddComponent<SpriteRenderer>();
     }
 

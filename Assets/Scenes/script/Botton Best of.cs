@@ -38,6 +38,8 @@ public class BottonBestof : MonoBehaviour
         if (score != null)
         {
             score.BestOf = 3;
+            // Suggestion: quedaron seis Debug.Log de depuración repartidos por la entrega (acá tres, más credits.cs:25, Exit botton.cs:29, ComeBackMenu.cs:28, Movement.cs:58 y text.cs:43).
+            // No inundan la consola como el de Score.cs, pero no van en la versión que se publica.
             Debug.Log("Best of 3 selected");
         }
     }

@@ -22,6 +22,8 @@ public class Buffs : MonoBehaviour
         }
     
     }
+    // Suggestion: Start y Update están vacíos. Pasa lo mismo en Ball Script, Change color For limit, ComeBackMenu, EndGame, Movement Players, RandomColorPlayer, SLider RGB, Scale Sliders, Score UI, Timer round, Botton Best of y Exit botton.
+    // Unity los llama igual aunque estén vacíos: borralos y el archivo queda más corto y más claro.
     void Start()
     {
         

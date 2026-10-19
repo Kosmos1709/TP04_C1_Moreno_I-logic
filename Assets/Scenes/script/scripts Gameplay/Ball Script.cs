@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
+    // Warning: DeltaTime se calcula en cada frame y no lo lee nadie, ni en este script ni en ningún otro. Además el else if de abajo lo deja en 1 en vez de en Time.deltaTime.
+    // Borralo. Y Speed, MaxSpeed y LastTouch pueden ser private: ya tenés BustSpeed, ResetSpeed y LastPlayer como puerta de entrada.
     public float DeltaTime;
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject VictoryMenu;

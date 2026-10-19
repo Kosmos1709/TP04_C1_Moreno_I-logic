@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// Suggestion: este es el script del TP01 y no está puesto en ninguna de las dos escenas ni en ningún prefab: es código muerto.
+// Borralo. Lo que hacía (mover, rotar con Q/E y cambiar color con R) ya está repartido entre MovimentPlayers y RandomColorPlayer.
 public class Movement : MonoBehaviour
 {
     public float speed = 15f;

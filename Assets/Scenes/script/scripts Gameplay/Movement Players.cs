@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
+// Suggestion: la clase se llama MovimentPlayers (falta la 'e' de Movement) y el archivo 'Movement Players.cs', con un espacio. El mismo problema está en Timerround, Exitbotton, BottonBestof, SLiderRGB y panelsettingsscript.
+// Los nombres de archivo de C# no deberían llevar espacios, y el nombre del archivo tiene que ser igual al de la clase. Renombrá desde el Project de Unity.
 public class MovimentPlayers : MonoBehaviour
 {
     [SerializeField] public float ScalePlayer1 = 0.5f;
@@ -41,6 +43,8 @@ public class MovimentPlayers : MonoBehaviour
     void Update()
     {
 
+        // Warning: este script está en los dos jugadores, así que hay dos componentes escribiendo Time.timeScale en cada frame, más el de ComeBackMenu. Tres escrituras por frame sobre la misma variable global.
+        // El control de pausa tiene que estar en un solo lugar.
         Time.timeScale = timeScale;
 
         if (PauseMenu.activeSelf || VictoryMenu.activeSelf)
@@ -71,6 +75,8 @@ public class MovimentPlayers : MonoBehaviour
             movement += Vector2.down;
         }
         movement = movement.normalized;
+        // Warning: escribís rb.position directo, que teletransporta el cuerpo y saltea la detección de colisiones del motor. La consigna pide mover con físicas.
+        // Usá RigiPlayer.MovePosition(RigiPlayer.position + movement * speed * Time.fixedDeltaTime), o AddForce si querés inercia.
         RigiPlayer.position += movement * speed * Time.fixedDeltaTime;
     }
 }
